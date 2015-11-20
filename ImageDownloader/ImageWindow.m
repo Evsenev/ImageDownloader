@@ -5,8 +5,6 @@
 }
 
 -(void)showWithImage:(NSImage *)image {
-    [self makeKeyAndOrderFront:self];
-    [NSApp activateIgnoringOtherApps:YES];
     if(!imageView)
         imageView = [[NSImageView alloc] initWithFrame:NSMakeRect(0,0,image.size.width, image.size.height)];
     else
@@ -15,5 +13,7 @@
     [self.contentView addSubview:imageView];
     [self setFrame:NSMakeRect(self.frame.origin.x, self.frame.origin.y,
                                  image.size.width, image.size.height) display:YES];
+    [self makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 @end
